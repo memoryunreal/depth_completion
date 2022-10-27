@@ -5,12 +5,22 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "completion",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": ["--hole_depth","/home/dataset4/cvpr2023/depth_completion/depth_refine_reconstruct/data/uav/hole/10.21.3", 
+                    "--output_depth", "/home/dataset4/cvpr2023/depth_completion/depth_refine_reconstruct/data/uav/completed/10.21.3"],
+            "justMyCode": true
+        },
+        {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
             "justMyCode": true
-        }
+        },
     ]
 }
