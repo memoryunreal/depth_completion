@@ -35,7 +35,7 @@ for dep in depth_image:
     print('time elapsed:', t)
 
     cv2.imwrite(os.path.join(completion, dep), res)
-    colormap = cv2.applyColorMap(cv2.convertScaleAbs(cv2.imread(os.path.join(completion, dep), -1), alpha=0.09), cv2.COLORMAP_JET)
+    colormap = cv2.applyColorMap(cv2.convertScaleAbs(cv2.imread(os.path.join(completion, dep), -1), alpha=0.06), cv2.COLORMAP_JET)
     cv2.imwrite(os.path.join(completion, "colormap", dep), colormap)
     colormap1 = cv2.applyColorMap(cv2.convertScaleAbs(cv2.imread(full_path, -1), alpha=0.03), cv2.COLORMAP_JET)
     # cv2.imwrite(os.path.join(completion, "colormap", "ori_{}".format(dep)), colormap1)
