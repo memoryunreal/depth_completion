@@ -9,6 +9,8 @@ import scipy
 import scipy.misc
 from PIL import Image
 from ulapsrn import Net_Quarter_Half_Original
+import os
+sys.path.append(os.path.split(os.path.abspath(__file__))[0])
 
 
 def generate_grid(h, w, fov):
@@ -43,11 +45,11 @@ class DepthPredictor:
         print("===> Setting model")
         self.model = self.model.cuda(self.gpu_id)
         # weights = torch.load('model_original_deep_mask_normal_ssim_tv_upconv/model_epoch_99.pth')
-        weights = torch.load('./model_epoch_99.pth')
+        weights = torch.load(os.path.join(os.path.split(os.path.abspath(__file__))[0],'model_epoch_99.pth'))
         self.model.load_state_dict(weights['model'].state_dict())
         self.model.eval()
         print('=> warming up')
-        data_bytes = open('raw_depth0195.png', 'rb').read()
+        data_bytes = open(os.path.join(os.path.split(os.path.abspath(__file__))[0],'raw_depth0195.png'), 'rb').read()
         pil_img = Image.open(io.BytesIO(data_bytes))
         self.__call__(pil_img)
         print('=> loading done')
